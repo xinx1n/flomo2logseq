@@ -1,6 +1,7 @@
 import os
 import re
 
+import markdownify
 from bs4 import BeautifulSoup
 
 
@@ -23,8 +24,18 @@ def parse_html_to_markdown(html_file, output_dir):
         time = memo.find("div", class_="time").text.strip()
         date = time.split(" ")[0]  # 提取日期部分
         mytime = time.split(" ")[1]  # 提取时间部分
-        content = memo.find("div", class_="content").text.strip()
+        content_html = memo.find("div", class_="content")
         files = memo.find("div", class_="files")
+
+        # 使用 markdownify 将 HTML 内容转换为 Markdown
+        content = markdownify.markdownify(str(content_html)).strip()
+
+        # 处理标签
+        content = re.sub(r"\\#([\d\w\u4e00-\u9fff]+)", r"#\1", content)
+
+        # 处理链接
+        content = re.sub(r"\\(https?://[^\s]+)", r"\1", content)
+        content = re.sub(r"\_id\=([^\s]+)", r"_id=\1", content)
 
         # 处理文件名中的特殊字符
         filename = re.sub(r"\W+", "_", date) + ".md"
@@ -55,4 +66,4 @@ def parse_html_to_markdown(html_file, output_dir):
                             f.write(f"![Image](../assets/{file_name})\n")
 
 # 调用函数进行解析
-parse_html_to_markdown('xxxx的笔记.html', 'output')
+parse_html_to_markdown("彩色的笔的笔记.html", "output")
