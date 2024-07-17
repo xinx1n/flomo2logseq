@@ -1,11 +1,19 @@
 # FLOMO TO LOGSEQ
 
+## 介绍
+
+### 此脚本 
+
 临时写的脚本，将 flomo 导出的 HTML 笔记转换为 logseq 笔记：
 
 - 使用 flomo 里 time 的日期作为文件名，时间作为三级标题，同一天内有多条记录的会合并
 - logseq 存放图片的文件夹名字为 assets。
 
-之前找的其他人的都不太和心意，也尝试了 flomo->notion->obsidian->logseq 的流程
+### 为什么
+
+之前找的其他人的都不太和心意
+
+也尝试了 flomo->notion->obsidian->logseq 的流程，此方案优缺点都很明显，缺点难以接受
 
 优点：
 
@@ -14,7 +22,7 @@
 缺点：
 
 - flomo 同步到 notion 是没有图片的
-- obsidian 从 notion 导入的 markdown 文件的文件名、文件格式都需要处理
+- 从 notion 导入到 obsidian 以后的 markdown 文件的文件名、文件格式都需要处理
   - 同一天的多个文件需要合并
   - 文件内没有具体时间，只有日期，合并效果不好
   - 文件头部的 yaml 属性需要处理，麻烦
