@@ -7,7 +7,8 @@
 临时写的脚本，将 flomo 导出的 HTML 笔记转换为 logseq 笔记：
 
 - 使用 flomo 里 time 的日期作为文件名，时间作为三级标题，同一天内有多条记录的会合并
-- logseq 存放图片的文件夹名字为 assets。
+- logseq 存放图片的文件夹名字为 assets
+- 没有将 flomo 的笔记间引用转换为 logseq 的引用
 
 ### 为什么
 
@@ -34,6 +35,13 @@
     Link: https://v.flomoapp.com/mine/?memo_id=xxxx
     ---
     ```
+
+### 题外话
+
+如果目标仅仅是 flomo 到 obsidian 或者 markdown，推荐两个另外两个方案：
+
+- 浏览器插件 flomo2md，收费，免费能导出 20 条，能将笔记间链接转换为双链，代价是不能把一天内的多条 memo 合并成一个文件
+- obsidian 的 Flomo Importer，导入快捷简单，能合并一天内的多条 memo，能生成 canvas，可以在一个 md 文件引用所有的 memo 形成 moments flow，不能把笔记间链接转换为双链
 
 ## 使用方法
 
